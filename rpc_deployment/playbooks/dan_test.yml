@@ -1,0 +1,38 @@
+- hosts: dan_host
+  remote_user: root
+  tasks:
+    - name: Testering
+      dan_action:
+        src: "/opt/os-ansible-deployment/README.rst"
+        dest: "/etc/keystone/policy.json"
+  vars_files:
+    - vars/repo_packages/keystone.yml
+    - inventory/group_vars/keystone_all.yml
+
+
+
+#  tasks:
+#    - name: Drop apache2 ports file
+#      dan_action:
+#        src: "{{ git_repo }}/raw/{{ git_install_branch }}/{{ git_etc_example }}policy.json"
+#        dest: "/etc/keystone/policy.json"
+#        policy_updates: "{{ policy_data }}"
+#  vars_files:
+#    - vars/repo_packages/keystone.yml
+#    - inventory/group_vars/keystone_all.yml
+
+
+#    - name: Testering
+#      copy:
+#        src: https://raw.githubusercontent.com/openstack/keystone/master/etc/policy.json
+#        dest: /root/DANTHEMAN
+
+
+#        src: /opt/os-ansible-deployment/README.rst
+#        dest: /root/thingy 
+#        owner: "root"
+#        group: "root"
+#        version: "{{ git_install_branch }}"
+#        path: "{{ git_etc_example }}/policy.json"
+#        dest: "/etc/keystone/policy.json"
+
