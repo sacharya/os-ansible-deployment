@@ -1,9 +1,10 @@
-- hosts: dan_host
+- hosts: keystone[0]
   remote_user: root
   tasks:
     - name: Testering
       dan_action:
-        src: "/opt/os-ansible-deployment/README.rst"
+        src: "roles/keystone_common/templates/policy.json.j2"
+        policy_updates: "{{ policy_data }}"
         dest: "/etc/keystone/policy.json"
   vars_files:
     - vars/repo_packages/keystone.yml

@@ -19,8 +19,8 @@ set -e -u -v +x
 
 ## Variables -----------------------------------------------------------------
 
-export REPO_URL=${REPO_URL:-"https://github.com/stackforge/os-ansible-deployment.git"}
-export REPO_BRANCH=${REPO_BRANCH:-"juno"}
+export REPO_URL=${REPO_URL:-"https://github.com/sacharya/os-ansible-deployment.git"}
+export REPO_BRANCH=${REPO_BRANCH:-"version10"}
 export WORKING_FOLDER=${WORKING_FOLDER:-"/opt/stackforge/os-ansible-deployment"}
 export ANSIBLE_PARAMETERS=${ANSIBLE_ANSIBLE_PARAMETERS:-"--forks 10"}
 
