@@ -195,7 +195,7 @@ def main():
         # not checking because of daisy chain to file module
         argument_spec = dict(
             src               = dict(required=False),
-            policy_updates    = dict(required=False),
+            updates    = dict(required=False),
             original_basename = dict(required=False), # used to handle 'dest is a directory' via template, a slight hack
             content           = dict(required=False, no_log=True),
             dest              = dict(required=True),
@@ -213,7 +213,7 @@ def main():
     src            = os.path.expanduser(module.params['src'])
     dest           = os.path.expanduser(module.params['dest'])
     remote         = module.params['remote']
-    policy_updates = module.params['policy_updates']
+    updates        = module.params['updates']
 
     changed = False
     backup_file = False
@@ -239,7 +239,7 @@ def main():
         module.fail_json(msg="Source %s not found" % (os.path.exists(src)))
 
     #replace default vals with new vals
-    for key,val in policy_updates.iteritems():
+    for key,val in updates.iteritems():
         src_json[key] = val
 
 

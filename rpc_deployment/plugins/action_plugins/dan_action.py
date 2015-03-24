@@ -51,6 +51,7 @@ class ActionModule(object):
         source  = options.get('src', None)
         content = options.get('content', None)
         dest    = options.get('dest', None)
+        updates = options.get('updates', None)
         raw     = utils.boolean(options.get('raw', 'no'))
         force   = utils.boolean(options.get('force', 'yes'))
 
@@ -160,7 +161,6 @@ class ActionModule(object):
         for source_full, source_rel in source_files:
             # Generate the MD5 hash of the local file.
             local_md5 = utils.md5(source_full)
-
             # If local_md5 is not defined we can't find the file so we should fail out.
             if local_md5 is None:
                 result = dict(failed=True, msg="could not find src=%s" % source_full)
@@ -173,7 +173,6 @@ class ActionModule(object):
                 dest_file = os.path.join(dest, source_rel)
             else:
                 dest_file = dest
-
             # Attempt to get the remote MD5 Hash.
             remote_md5 = self.runner._remote_md5(conn, tmp_path, dest_file)
 
@@ -192,8 +191,7 @@ class ActionModule(object):
             if remote_md5 != '1' and not force:
                 # remote_file does not exist so continue to next iteration.
                 continue
-
-            if local_md5 != remote_md5:
+            if local_md5 != remote_md5 or updates is not None:
                 # The MD5 hashes don't match and we will change or error out.
                 changed = True
 
@@ -241,6 +239,7 @@ class ActionModule(object):
                 new_module_args = dict(
                     src=tmp_src,
                     dest=dest,
+                    updates=updates,
                     original_basename=source_rel
                 )
 
@@ -248,7 +247,6 @@ class ActionModule(object):
                     new_module_args['NO_LOG'] = True
 
                 module_args_tmp = utils.merge_module_args(module_args, new_module_args)
-
                 module_return = self.runner._execute_module(conn, tmp_path, 'dan_action', module_args_tmp, inject=inject, complex_args=complex_args, delete_remote_tmp=delete_remote_tmp)
                 module_executed = True
 

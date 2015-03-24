@@ -4,7 +4,7 @@
     - name: Testering
       dan_action:
         src: "roles/keystone_common/templates/policy.json.j2"
-        policy_updates: "{{ policy_data }}"
+        updates: "{{ policy_data }}"
         dest: "/etc/keystone/policy.json"
   vars_files:
     - vars/repo_packages/keystone.yml
