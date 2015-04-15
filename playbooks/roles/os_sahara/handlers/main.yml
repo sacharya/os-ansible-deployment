@@ -13,12 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- include: os-keystone-install.yml
-- include: os-swift-install.yml
-- include: os-glance-install.yml
-- include: os-cinder-install.yml
-- include: os-nova-install.yml
-- include: os-neutron-install.yml
-- include: os-heat-install.yml
-- include: os-sahara-install.yml
-- include: os-horizon-install.yml
+- name: Restart sahara services
+  service:
+    name: "{{ item }}"
+    state: restarted
+    pattern: "{{ item }}"
+  with_items: sahara_service_names
+  failed_when: false

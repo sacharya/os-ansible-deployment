@@ -82,6 +82,12 @@ nova_git_install_branch: a4f4be370be06cfc9aa3ed30d2445277e832376f # HEAD of "mas
 nova_git_dest: "/opt/nova_{{ nova_git_install_branch | replace('/', '_') }}"
 
 
+## Sahara service
+sahara_git_repo: https://github.com/openstack/sahara
+sahara_git_install_branch: a9fdcfe3229a0a0040a67d22476ba06445afb9c4 # Head of "master" as of 12.05.2015
+sahara_git_dest: "/opt/sahara_{{ sahara_git_install_branch | replace('/', '_') }}"
+
+
 ## Swift service
 swift_git_repo: https://git.openstack.org/openstack/swift
 swift_git_install_branch: 0009a43eb45fdee6716d1272b346cfc76d946e4b # HEAD of "master" as of 22.06.2015

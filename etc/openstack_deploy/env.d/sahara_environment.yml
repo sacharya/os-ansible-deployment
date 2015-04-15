@@ -1,0 +1,41 @@
+component_skel:
+  sahara_api:
+    belongs_to:
+      - sahara_all
+  sahara_engine:
+    belongs_to:
+      - sahara_all
+
+
+container_skel:
+  sahara-api_container:
+    belongs_to:
+      - sahara-api_containers
+    contains:
+      - sahara_api
+    properties:
+      service_name: sahara
+      container_release: trusty
+  sahara-engine_container:
+    belongs_to:
+      - sahara-engine_containers
+    contains:
+      - sahara_engine
+    properties:
+      service_name: sahara
+      container_release: trusty
+
+
+physical_skel:
+  sahara-api_containers:
+    belongs_to:
+      - all_containers
+  sahara-api_hosts:
+    belongs_to:
+      - hosts
+  sahara-engine_containers:
+    belongs_to:
+      - all_containers
+  sahara-engine_hosts:
+    belongs_to:
+      - hosts

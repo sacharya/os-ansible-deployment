@@ -1,0 +1,45 @@
+# {{ ansible_managed }}
+
+[DEFAULT]
+verbose = {{ verbose }}
+debug = {{ debug }}
+use_syslog = False
+
+## RabbitMQ
+rpc_backend = {{ sahara_rpc_backend }}
+
+infrastructure_engine = direct
+use_neutron = false
+plugins = vanilla,hdp,cdh,spark,fake
+
+[oslo_messaging_rabbit]
+rabbit_port = {{ rabbitmq_port }}
+rabbit_userid = {{ rabbitmq_userid }}
+rabbit_password = {{ rabbitmq_password }}
+rabbit_hosts = {{ rabbitmq_servers }}
+
+[database]
+connection = mysql://{{ sahara_galera_user }}:{{ sahara_container_mysql_password }}@{{ galera_address }}/{{ sahara_galera_database }}?charset=utf8
+
+[sahara_api]
+bind_port = {{ sahara_service_port }}
+
+[keystone_authtoken]
+signing_dir = {{ sahara_system_home_folder }}/cache/sahara
+identity_uri = {{ keystone_service_adminuri }}
+auth_uri = {{ keystone_service_internalurl }}
+admin_tenant_name = {{ sahara_service_tenant_name }}
+admin_user = {{ sahara_service_user_name }}
+admin_password = {{ sahara_service_password }}
+
+memcached_servers = {{ memcached_servers }}
+
+token_cache_time = 300
+revocation_cache_time = 60
+
+# if your memcached server is shared, use these settings to avoid cache poisoning
+memcache_security_strategy = ENCRYPT
+memcache_secret_key = {{ memcached_encryption_key }}
+
+# if your keystone deployment uses PKI, and you value security over performance:
+check_revocations_for_cached = False

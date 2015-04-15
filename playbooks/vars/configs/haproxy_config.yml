@@ -154,3 +154,8 @@ haproxy_service_configs:
       haproxy_port: 8181
       haproxy_backend_port: 8181
       haproxy_balance_type: http
+  - service:
+      haproxy_service_name: sahara_api
+      haproxy_backend_nodes: "{{ groups['sahara_api'] }}"
+      haproxy_port: 8386
+      haproxy_balance_type: http

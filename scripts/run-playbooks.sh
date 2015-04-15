@@ -92,6 +92,7 @@ pushd "playbooks"
     install_bits os-nova-install.yml
     install_bits os-neutron-install.yml
     install_bits os-heat-install.yml
+    install_bits os-sahara-install.yml
     install_bits os-horizon-install.yml
   fi
 
