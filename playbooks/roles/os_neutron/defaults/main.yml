@@ -206,8 +206,8 @@ neutron_rpc_backend: rabbit
 # Provide a list of access controls to update the default policy.json with. These changes will be merged
 # with the access controls in the default policy.json. E.g.
 #neutron_policy_overrides:
-#  create_subnet: "rule:admin_or_network_owner"
-#  get_subnet: "rule:admin_or_owner or rule:shared"
+#  "create_subnet": "rule:admin_or_network_owner"
+#  "get_subnet": "rule:admin_or_owner or rule:shared"
 
 neutron_apt_packages:
   - conntrackd

@@ -95,7 +95,7 @@
   with_items:
     - { content: "{{ lookup('file', 'policy.json') | b64encode }}", policy_data: "{{ neutron_policy_overrides|default('') }}", dest: "/etc/neutron/policy.json" }
   notify:
-    - Restart neurton services
+    - Restart neutron services
   tags:
     - neutron-config
 
