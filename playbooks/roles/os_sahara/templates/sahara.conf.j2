@@ -9,7 +9,8 @@ use_syslog = False
 rpc_backend = {{ sahara_rpc_backend }}
 
 infrastructure_engine = direct
-use_neutron = false
+use_neutron = True
+use_floating_ips = False
 plugins = vanilla,hdp,cdh,spark,fake
 
 [oslo_messaging_rabbit]
