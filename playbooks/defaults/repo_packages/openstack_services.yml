@@ -66,8 +66,10 @@ heat_git_dest: "/opt/heat_{{ heat_git_install_branch | replace('/', '_') }}"
 
 
 ## Horizon service
-horizon_git_repo: https://git.openstack.org/openstack/horizon
-horizon_git_install_branch: 4fa0595078dfd8b83b22cff176eb7dd0bf32bdfe # HEAD of "stable/liberty" as of 24.03.2016
+#horizon_git_repo: https://git.openstack.org/openstack/horizon
+#horizon_git_install_branch: 4fa0595078dfd8b83b22cff176eb7dd0bf32bdfe # HEAD of "stable/liberty" as of 24.03.2016
+horizon_git_repo: https://github.com/sacharya/horizon
+horizon_git_install_branch: 35f487978927f4e40451f3350b99b65dc6568c54 # HEAD of "liberty_instance_metadata liberty"
 horizon_git_dest: "/opt/horizon_{{ horizon_git_install_branch | replace('/', '_') }}"
 
 
