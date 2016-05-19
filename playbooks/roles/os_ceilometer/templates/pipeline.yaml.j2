@@ -35,6 +35,14 @@ sources:
           - "network.outgoing.packets"
       sinks:
           - network_sink
+    - name: swift_source
+      interval: 3600
+      meters:
+          - "storage.objects"
+          - "storage.objects.size"
+          - "storage.objects.containers"
+      sinks:
+          - meter_sink
 sinks:
     - name: meter_sink
       transformers:

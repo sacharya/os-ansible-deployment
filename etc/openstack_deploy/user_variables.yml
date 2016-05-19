@@ -25,13 +25,13 @@
 
 ## Common Override to enable Ceilometer for each service.
 ## By default all service are *not* enabled.
-# swift_ceilometer_enabled: True
+swift_ceilometer_enabled: True
 # heat_ceilometer_enabled: True
-# cinder_ceilometer_enabled: True
-# glance_ceilometer_enabled: True
-# nova_ceilometer_enabled: True
-# neutron_ceilometer_enabled: True
-# keystone_ceilometer_enabled: True
+cinder_ceilometer_enabled: True
+glance_ceilometer_enabled: True
+nova_ceilometer_enabled: True
+neutron_ceilometer_enabled: True
+keystone_ceilometer_enabled: True
 
 ## Common Aodh Overrides
 # aodh_db_type: mongodb

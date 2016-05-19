@@ -58,7 +58,7 @@ swift_middleware_list:
   - gatekeeper
   - healthcheck
   - proxy-logging
-#  - ceilometer
+  - ceilometer
   - cache
   - container_sync
   - bulk
