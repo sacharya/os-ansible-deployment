@@ -58,6 +58,10 @@
   scm: git
   src: https://git.openstack.org/openstack/openstack-ansible-os_aodh
   version: c9020b0db48104f6f351e369e7864bd96f6a9ea6
+- name: os_barbican
+  scm: git
+  src: https://git.openstack.org/openstack/openstack-ansible-os_barbican
+  version: 2d087176610c712f51dec8722b6129e648b149e2
 - name: os_ceilometer
   scm: git
   src: https://git.openstack.org/openstack/openstack-ansible-os_ceilometer

@@ -33,7 +33,9 @@ OpenStack service roles
 
 -  `os_aodh <http://docs.openstack.org/developer/openstack-ansible-os_aodh/newton>`_
 
--  `os_ceilometer <http://docs.openstack.org/developer/openstack-ansible-os_ceilometer/newton>`_
+-  `os_barbican <http://docs.openstack.org/developer/openstack-ansible-os_barbican>`_
+
+-  `os_ceilometer <http://docs.openstack.org/developer/openstack-ansible-os_ceilometer>`_
 
 -  `os_cinder <http://docs.openstack.org/developer/openstack-ansible-os_cinder/newton>`_
 
